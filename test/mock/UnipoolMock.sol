@@ -5,8 +5,8 @@ import "../../contracts/Unipool.sol";
 
 contract UnipoolMock is Unipool {
 
-    constructor(IERC20 uniToken, IERC20 snxToken) public {
+    constructor(IERC20 uniToken, IERC20 ziotToken) public {
         uni = uniToken;
-        snx = snxToken;
+        ziot = ziotToken;
     }
 }
