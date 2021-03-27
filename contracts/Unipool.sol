@@ -38,8 +38,8 @@ contract LPTokenWrapper {
 
 contract Unipool is LPTokenWrapper, IRewardDistributionRecipient {
     IERC20 public ziot = IERC20(0xfB22cED41B1267dA411F68c879f4Defd0bD4796a);
-    // 50,000 * 12 = 600000 // 600000000000000000000000
-    uint256 public constant DURATION = 365 days;
+    // 50,000 //50000000000000000000000
+    uint256 public constant DURATION = 30 days;
 
     uint256 public periodFinish = 0;
     uint256 public rewardRate = 0;
@@ -61,6 +61,11 @@ contract Unipool is LPTokenWrapper, IRewardDistributionRecipient {
             userRewardPerTokenPaid[account] = rewardPerTokenStored;
         }
         _;
+    }
+
+    constructor(IERC20 uniToken, IERC20 ziotToken) public {
+        uni = uniToken;
+        ziot = ziotToken;
     }
 
     function lastTimeRewardApplicable() public view returns (uint256) {
